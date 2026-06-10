@@ -61,7 +61,9 @@ function Index() {
       <main>
         <Hero />
         <AppsSection />
+        <WhoItsFor />
         <Features />
+        <Testimonials />
         <Vision />
         <Contact />
       </main>
