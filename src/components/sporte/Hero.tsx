@@ -26,7 +26,8 @@ export function Hero() {
           <span className="text-accent">Play More.</span> Organize Less.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-lg text-muted-foreground">
-          SportE is a modern platform for organizing sporting events, leagues,
+          SportE is a modern platform for charity outings, private clubs, public
+          courses, event professionals, and anyone organizing leagues,
           tournaments, and friendly competitions across multiple sports.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
