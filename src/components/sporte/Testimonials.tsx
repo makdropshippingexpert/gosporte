@@ -17,7 +17,7 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "Our members love how easy it is to sign up for league nights. SportE Golf has cut my admin time in half and made our private events feel premium.",
-    name: "David Chen",
+    name: "David C.",
     role: "Head Pro, Private Country Club",
   },
   {
