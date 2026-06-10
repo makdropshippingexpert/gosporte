@@ -23,7 +23,7 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "Hosting public scrambles used to be chaos. Now players register online, pay in, and the brackets just work. The purse payouts to 1st, 2nd, and 3rd are automatic.",
-    name: "Carlos Rivera",
+    name: "Carlos R.",
     role: "Public Course General Manager",
   },
   {
