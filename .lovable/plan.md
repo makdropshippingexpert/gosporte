@@ -1,67 +1,36 @@
-# SportE Landing Page
+# Add Sport Graphics to App Cards
 
-Build the marketing/hub site for SportE at the root route. The spec calls for Next.js, but this project runs on TanStack Start + Tailwind v4 (which is what Lovable supports). I'll deliver the same design, content, IA, SEO, and data-driven apps array using the existing stack — no framework swap.
+Generate clean, on-brand illustrations for each sport in the apps grid and wire them into the existing `AppCard` component.
 
-## Scope
+## Visual direction
 
-Single-page landing with anchor-scrolled sections (Home/Apps/About/Contact) plus a top-nav primary CTA to the Golf app. Fully responsive, mobile-first, modern SaaS look.
+One consistent style across all sports so the grid feels cohesive:
+- Flat / minimal vector-style illustration
+- Soft gradient background using SportE palette (deep navy `#0F172A` → accent blue `#2563EB`)
+- Single hero object per card (golf ball + flag, basketball, dodgeball)
+- Subtle highlights, no photo realism, no text in image
+- Square 1024×1024, exported as JPG (no transparency needed — the image fills a banner)
 
-## Design tokens (added to `src/styles.css`)
+For the "Coming Soon" placeholder card I'll keep the current `Sparkles` icon treatment (no generated image) so it visually reads as different from the real apps.
 
-- Primary `#0F172A`, Accent `#2563EB`, Success `#22C55E`, Background `#F8FAFC`
-- White cards with subtle shadow, rounded buttons with hover animations
-- Converted to oklch and mapped via `@theme inline` to match project conventions
+## Images to generate (via `imagegen--generate_image`, `standard` quality)
 
-## Sections (in `src/routes/index.tsx`)
+1. `src/assets/sport-golf.jpg` — minimalist golf ball resting next to a small pin/flag on a stylised green, navy→blue gradient background.
+2. `src/assets/sport-basketball.jpg` — minimalist basketball with clean seam lines, navy→blue gradient background.
+3. `src/assets/sport-dodgeball.jpg` — minimalist red dodgeball with subtle highlight, navy→blue gradient background.
 
-1. **Sticky nav** — SportE logo (left), Home/Apps/About/Contact anchors (center), "Launch Golf App" primary CTA (right). Mobile: hamburger sheet.
-2. **Hero** — Headline "Plan Better Sporting Events. Play More. Organize Less.", subheadline, primary CTA → `https://app.golf.gosporte.com/`, secondary CTA scrolls to `#apps`.
-3. **Apps** — Rendered from a single `apps` array. Each card shows name, description, status badge (LIVE green / COMING SOON muted), and Open App / disabled Coming Soon button. Plus a "More Sports Coming" placeholder card listing pickleball, volleyball, tennis, soccer, softball, cornhole, disc golf, custom event platforms.
-4. **Why SportE** — Three feature columns (Easy Event Planning, Tournament Management, Multi-Sport Platform) with lucide icons.
-5. **Platform Vision** — "One Platform. Unlimited Sports." with body copy.
-6. **About** — Short brand/mission blurb (anchor target for nav).
-7. **Contact** — Simple contact block with mailto link (anchor target).
-8. **Footer** — SportE brand, nav links, applications list (Golf, Basketball coming soon, Dodgeball coming soon), © 2026.
+All three prompts will share the same style modifiers ("flat vector illustration, soft gradient background from #0F172A to #2563EB, centered single object, clean, modern, no text") so the cards match.
 
-## Data structure
+## Code changes
 
-```ts
-const apps = [
-  { name: "SportE Golf", sport: "golf", status: "live",
-    description: "Create golf events, organize players, manage tournaments, and simplify event planning.",
-    url: "https://app.golf.gosporte.com/" },
-  { name: "SportE Basketball", sport: "basketball", status: "coming-soon",
-    description: "Manage basketball tournaments, leagues, teams, and event scheduling.",
-    url: "https://app.basketball.gosporte.com/" },
-  { name: "SportE Dodgeball", sport: "dodgeball", status: "coming-soon",
-    description: "Organize dodgeball events, leagues, brackets, and team management.",
-    url: "https://app.dodgeball.gosporte.com/" },
-];
-```
-
-Adding a new sport = one object in the array.
-
-## SEO
-
-In `src/routes/index.tsx` `head()`:
-- title: `SportE | Sporting Event Planning Platform`
-- description, og:title, og:description per spec
-- keywords meta
-- JSON-LD `Organization` with name SportE, url, and `sameAs`/sub-app urls
-
-`__root.tsx` gets updated default `og:site_name` to SportE. Single H1 in hero. Semantic `<section>` with ids for anchors. `scroll-behavior: smooth` on html.
-
-## Technical notes
-
-- Stack: TanStack Start + React + Tailwind v4 (not Next.js). Same visual/functional result.
-- Anchor nav via `<a href="#apps">` for in-page scroll (acceptable here per route-architecture guidance because this is a single landing page with scrolling sections, matching the spec's IA).
-- No backend, no auth, no DB needed for this scope.
-- Uses existing shadcn `Button`, `Card`, `Badge`, `Sheet` components.
+- Extend `SporteApp` in `src/lib/sporte-apps.ts` with an optional `image?: string` field; import the three JPGs and attach them to each entry.
+- Update `src/components/sporte/AppCard.tsx` to render a top banner `<img>` (aspect ~16/9, `object-cover`, rounded top corners) above the existing card header when `app.image` is set. Keep the small letter-tile + badge row, but move the badge to overlay the image (top-right) so it reads as a status flag on the artwork. Live cards get a hover scale on the image for a subtle animation.
+- No changes to the apps grid layout, the "More Sports Coming" card, or any other section.
 
 ## Files touched
 
-- `src/styles.css` — add SportE color tokens
-- `src/routes/__root.tsx` — update default meta (site_name SportE)
-- `src/routes/index.tsx` — replace placeholder with full landing
-- `src/components/sporte/` — `Navbar.tsx`, `Hero.tsx`, `AppsSection.tsx`, `AppCard.tsx`, `Features.tsx`, `Vision.tsx`, `Footer.tsx`
-- `src/lib/sporte-apps.ts` — the `apps` array
+- `src/assets/sport-golf.jpg` (new)
+- `src/assets/sport-basketball.jpg` (new)
+- `src/assets/sport-dodgeball.jpg` (new)
+- `src/lib/sporte-apps.ts`
+- `src/components/sporte/AppCard.tsx`
