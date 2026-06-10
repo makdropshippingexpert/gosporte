@@ -1,4 +1,4 @@
-import { CalendarCheck, Trophy, LayoutGrid } from "lucide-react";
+import { CalendarCheck, Trophy, LayoutGrid, DollarSign, Lock } from "lucide-react";
 
 const features = [
   {
@@ -10,6 +10,18 @@ const features = [
     icon: Trophy,
     title: "Tournament Management",
     description: "Handle brackets, teams, and scheduling with less effort.",
+  },
+  {
+    icon: DollarSign,
+    title: "Optional Cash Purse",
+    description:
+      "Run a skills contest with a separate entry fee that funds payouts to 1st, 2nd, and 3rd.",
+  },
+  {
+    icon: Lock,
+    title: "Public or Private Events",
+    description:
+      "Open registration to the world or keep it invite-only for your members.",
   },
   {
     icon: LayoutGrid,
