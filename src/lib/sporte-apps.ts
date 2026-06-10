@@ -1,3 +1,7 @@
+import golfImg from "@/assets/sport-golf.jpg";
+import basketballImg from "@/assets/sport-basketball.jpg";
+import dodgeballImg from "@/assets/sport-dodgeball.jpg";
+
 export type AppStatus = "live" | "coming-soon";
 
 export interface SporteApp {
@@ -6,6 +10,7 @@ export interface SporteApp {
   status: AppStatus;
   description: string;
   url: string;
+  image?: string;
 }
 
 export const apps: SporteApp[] = [
@@ -16,6 +21,7 @@ export const apps: SporteApp[] = [
     description:
       "Create golf events, organize players, manage tournaments, and simplify event planning.",
     url: "https://app.golf.gosporte.com/",
+    image: golfImg,
   },
   {
     name: "SportE Basketball",
@@ -24,6 +30,7 @@ export const apps: SporteApp[] = [
     description:
       "Manage basketball tournaments, leagues, teams, and event scheduling.",
     url: "https://app.basketball.gosporte.com/",
+    image: basketballImg,
   },
   {
     name: "SportE Dodgeball",
@@ -32,6 +39,7 @@ export const apps: SporteApp[] = [
     description:
       "Organize dodgeball events, leagues, brackets, and team management.",
     url: "https://app.dodgeball.gosporte.com/",
+    image: dodgeballImg,
   },
 ];
 
