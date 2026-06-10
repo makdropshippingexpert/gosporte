@@ -19,7 +19,7 @@ export const apps: SporteApp[] = [
     sport: "golf",
     status: "live",
     description:
-      "Create golf events, organize players, manage tournaments, and simplify event planning.",
+      "Run public or private tournaments, leagues, and charity outings — with an optional cash purse skills contest paying out 1st, 2nd, and 3rd.",
     url: "https://app.golf.gosporte.com/",
     image: golfImg,
   },
