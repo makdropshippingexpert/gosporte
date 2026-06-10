@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "I plan corporate golf events for a living. SportE is the first platform that handles public and private events equally well — exactly what my clients need.",
-    name: "Priya Shah",
+    name: "Priya S.",
     role: "Independent Event Planner",
   },
 ];
