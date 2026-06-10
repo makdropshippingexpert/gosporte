@@ -136,6 +136,12 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --success: oklch(0.723 0.19 149.579);
+  --success-foreground: oklch(0.129 0.042 264.695);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {
