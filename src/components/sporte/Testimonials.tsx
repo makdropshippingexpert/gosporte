@@ -11,7 +11,7 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "We ran our charity outing for 144 players without a single spreadsheet. The cash purse for the skills contest was a huge hit and raised more than we expected.",
-    name: "Megan Bauer",
+    name: "Megan B.",
     role: "Charity Tournament Director",
   },
   {
