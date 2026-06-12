@@ -1,6 +1,10 @@
-import golfImg from "@/assets/sport-golf.jpg";
-import basketballImg from "@/assets/sport-basketball.jpg";
-import dodgeballImg from "@/assets/sport-dodgeball.jpg";
+import golfLogo from "@/assets/sporte-golf-logo.png.asset.json";
+import basketballLogo from "@/assets/sporte-basketball-logo.png.asset.json";
+import dodgeballLogo from "@/assets/sporte-dodgeball-logo.png.asset.json";
+
+const golfImg = golfLogo.url;
+const basketballImg = basketballLogo.url;
+const dodgeballImg = dodgeballLogo.url;
 
 export type AppStatus = "live" | "coming-soon";
 

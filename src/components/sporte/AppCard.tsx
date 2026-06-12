@@ -9,14 +9,14 @@ export function AppCard({ app }: { app: SporteApp }) {
   return (
     <Card className="group flex h-full flex-col overflow-hidden border-border/60 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl pt-0">
       {app.image && (
-        <div className="relative aspect-[16/10] overflow-hidden bg-primary">
+        <div className="relative aspect-[16/10] overflow-hidden bg-white">
           <img
             src={app.image}
-            alt={`${app.name} illustration`}
+            alt={`${app.name} logo`}
             loading="lazy"
             width={1024}
             height={640}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute right-3 top-3">
             {isLive ? (

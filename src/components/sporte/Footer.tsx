@@ -1,14 +1,19 @@
+import brandLogo from "@/assets/sporte-brand-logo.png.asset.json";
+
 export function Footer() {
   return (
     <footer className="border-t border-border/60 bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground font-bold">
-                S
-              </div>
-              <span className="text-lg font-bold">SportE</span>
+            <div className="inline-flex items-center justify-center rounded-lg bg-white p-3">
+              <img
+                src={brandLogo.url}
+                alt="SportE"
+                width={160}
+                height={48}
+                className="h-10 w-auto"
+              />
             </div>
             <p className="mt-4 text-sm text-primary-foreground/70">
               A modern platform for organizing sporting events across multiple
