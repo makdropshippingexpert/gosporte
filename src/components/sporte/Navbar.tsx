@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GOLF_URL } from "@/lib/sporte-apps";
+import brandLogo from "@/assets/sporte-brand-logo.png.asset.json";
 
 const links = [
   { href: "#home", label: "Home" },
